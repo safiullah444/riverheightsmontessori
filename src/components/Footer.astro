@@ -1,0 +1,33 @@
+---
+interface Props { style?: string }
+const { style } = Astro.props;
+const year = new Date().getFullYear();
+---
+<footer class="foot" style={style}>
+  <div class="wrap">
+    <div class="fgrid">
+      <div class="fcol">
+        <img src="/images/logo-stacked.png" alt="River Heights Montessori, Reggio-inspired Montessori" width="560" height="399" style="width:230px;max-width:100%;height:auto" loading="lazy" />
+        <p class="body" style="font-size:15px">Early learning in the heart of River Heights, Winnipeg.</p>
+      </div>
+      <div class="fcol">
+        <p class="fh">Explore</p>
+        <a href="/programs/">Our Programs</a><a href="/about/">About Us</a><a href="/meet-the-team/">Meet Our Team</a><a href="/admissions/">Admissions</a><a href="/admissions/#faq">FAQ</a>
+      </div>
+      <div class="fcol">
+        <p class="fh">Families</p>
+        <a href="/admissions/#inquiry">Book a tour</a><a href="/admissions/#waitlist">Wait list</a><a href="/contact/">Contact Us</a>
+      </div>
+      <div class="fcol">
+        <p class="fh">Visit</p>
+        <span>333 Wilton Street<br />Winnipeg, MB R3M 3B7</span>
+        <a href="tel:+12043068778">(204) 306-8778</a>
+        <span>Mon to Fri, 7:30 to 5:30</span>
+      </div>
+    </div>
+    <div class="fbot">
+      <span>Licensed child care centre, Province of Manitoba</span>
+      <span><a href="/privacy/" style="color:#5A534A">Privacy policy</a>  ·  © {year} River Heights Montessori</span>
+    </div>
+  </div>
+</footer>

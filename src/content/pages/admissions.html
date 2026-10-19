@@ -1,0 +1,152 @@
+
+<section class="wrap"><div class="phero phsteps">
+<div style="display:flex;flex-direction:column;gap:26px">
+<p class="crumb load d1"><a href="/">Home</a><span aria-hidden="true">/</span><span>Admissions</span></p>
+<h1 class="h1p load d2">Four steps to <span class="ac">your first day.</span></h1>
+<p class="lead load d3" style="max-width:560px">Registration is open year-round, based on availability. Book a tour through our short form and we will guide you through the rest.</p>
+<div class="load d4" style="display:flex;gap:14px;flex-wrap:wrap"><a href="#inquiry" class="btn btn-f">Book a tour</a></div>
+</div>
+<div class="hsteps load d3" id="how">
+<p class="eb">How to enroll</p>
+<ol>
+<li><span class="hn">1</span><div><p class="h4">Book a tour</p><p class="body">Tell us about your child in the form below. We will get back to you within one business day.</p></div></li>
+<li><span class="hn">2</span><div><p class="h4">Tour</p><p class="body">Visit the classrooms, meet the educators and receive this year's registration and fee information.</p></div></li>
+<li><span class="hn">3</span><div><p class="h4">Reserve</p><p class="body">Secure your space with the registration fee and a one-month deposit, applied to your final month.</p></div></li>
+<li><span class="hn">4</span><div><p class="h4">Begin</p><p class="body">Your child begins on their start date. Before day one, we walk you through what to bring and how the first week works.</p></div></li>
+</ol>
+</div></section>
+<section id="inquiry" class="sec anchor"><div class="wrap" style="display:flex;flex-direction:column;gap:48px">
+<div class="head rv"><p class="eb">Book a tour</p><h2 class="h2">Tell us about your child, <span class="ac">and we'll take it from there.</span></h2><p class="lead">Please fill out the form below, and we will contact you to find a time that works. We will get back to you within one business day.</p></div>
+<div class="hp" aria-hidden="true"><label>Leave this empty<input type="text" id="tf-company" name="company" tabindex="-1" autocomplete="off"></label></div>
+<noscript><p class="lead">This form needs JavaScript. You can also call us at <a href="tel:+12043068778">(204) 306-8778</a> or email <a href="mailto:info@riverheightschildcare.com">info@riverheightschildcare.com</a> to book a tour.</p></noscript>
+<div class="formwrap" data-mount>
+
+<div class="formcard">
+<sc-if value="{{ notDone }}" hint-placeholder-val="{{ true }}">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div class="stepper" aria-label="Progress">
+<sc-for list="{{ stepItems }}" as="si" hint-placeholder-count="4"><div class="{{ si.cls }}"><i></i><span>{{ si.label }}</span></div></sc-for>
+</div>
+<div style="display:flex;flex-direction:column;gap:6px"><p class="fl">Step {{ step }} of 4</p><h3 class="h3">{{ stepTitle }}</h3></div>
+<sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}"><p class="err" role="alert">Please check the highlighted fields.</p></sc-if>
+
+<sc-if value="{{ is1 }}" hint-placeholder-val="{{ true }}">
+<div class="fgrid2">
+<div class="field full"><label class="lbl" for="q-child">Child's first name <span class="req">*</span></label><input id="q-child" class="{{ c.childName }}" type="text" autocomplete="off" value="{{ v.childName }}" data-on-change="{{ on.childName }}"><sc-if value="{{ e.childName }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.childName }}</p></sc-if></div>
+<label class="inline field full"><input type="checkbox" checked="{{ v.expecting }}" data-on-change="{{ on.expecting }}"><span>We are expecting. Our baby has not arrived yet.</span></label>
+<sc-if value="{{ notExpecting }}" hint-placeholder-val="{{ true }}"><div class="field"><label class="lbl" for="q-dob">Date of birth <span class="req">*</span></label><input id="q-dob" class="{{ c.dob }}" type="date" value="{{ v.dob }}" data-on-change="{{ on.dob }}"><sc-if value="{{ e.dob }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.dob }}</p></sc-if></div></sc-if>
+<sc-if value="{{ v.expecting }}" hint-placeholder-val="{{ false }}"><div class="field"><label class="lbl" for="q-due">Due date <span class="req">*</span></label><input id="q-due" class="{{ c.due }}" type="date" value="{{ v.due }}" data-on-change="{{ on.due }}"><sc-if value="{{ e.due }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.due }}</p></sc-if></div></sc-if>
+<div class="field"><label class="lbl" for="q-current">Current care</label><select id="q-current" class="inp" value="{{ v.current }}" data-on-change="{{ on.current }}"><option value="">Choose one</option><option value="At home">At home</option><option value="Another centre">Another centre</option><option value="Nanny or family">Nanny or family</option><option value="Other">Other</option></select></div>
+<sc-if value="{{ isCentre }}" hint-placeholder-val="{{ false }}"><div class="subpanel field full"><p class="fl">About your current centre</p><div class="fgrid2"><div class="field full"><label class="lbl" for="q-prevcentre">Centre name</label><input id="q-prevcentre" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.prevCentre }}" data-on-change="{{ on.prevCentre }}"></div><div class="field full"><label class="lbl" for="q-leave">Reason for leaving</label><textarea id="q-leave" class="inp" rows="3" maxlength="400" value="{{ v.leaveReason }}" data-on-change="{{ on.leaveReason }}"></textarea></div></div></div></sc-if>
+<sc-if value="{{ isOtherCare }}" hint-placeholder-val="{{ false }}"><div class="subpanel field full"><div class="field full"><label class="lbl" for="q-careother">Tell us about your current care</label><textarea id="q-careother" class="inp" rows="3" maxlength="400" value="{{ v.careOther }}" data-on-change="{{ on.careOther }}"></textarea></div></div></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ is2 }}" hint-placeholder-val="{{ false }}">
+<div class="fgrid2">
+<div class="field"><label class="lbl" for="q-start">Ideal start date <span class="req">*</span></label><input id="q-start" class="{{ c.start }}" type="date" value="{{ v.start }}" data-on-change="{{ on.start }}"><sc-if value="{{ e.start }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.start }}</p></sc-if></div>
+<div class="field"><span class="lbl" id="q-firm">How firm is that date?</span><div class="opts" role="radiogroup" aria-labelledby="q-firm"><sc-for list="{{ firmOpts }}" as="o" hint-placeholder-count="3"><label class="{{ o.cls }}"><input type="radio" name="firm" checked="{{ o.checked }}" data-on-change="{{ o.pick }}">{{ o.label }}</label></sc-for></div></div>
+<sc-if value="{{ hasMatch }}" hint-placeholder-val="{{ false }}"><div class="match field full"><span class="icon" style="background:#FFFFFF"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2F4A3A" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M5 19c0-8 6-14 14-14 0 8-6 14-14 14z"></path><path d="M5 19l9-9"></path></svg></span><div style="display:flex;flex-direction:column;gap:4px"><span class="fl" style="color:#2F4A3A">Recommended room</span><span class="h3" style="font-size:26px">{{ recName }}</span><span class="small">{{ childFirst }} will be {{ ageText }} on {{ startLong }}.</span></div></div></sc-if>
+<sc-if value="{{ hasNote }}" hint-placeholder-val="{{ false }}"><div class="match warn field full"><div style="display:flex;flex-direction:column;gap:4px"><span class="h4">Let's talk first</span><span class="small">{{ progNote }} Send the inquiry anyway and we will call you.</span></div></div></sc-if>
+<div class="field full"><span class="lbl" id="q-prog">Program</span><div class="g3" style="gap:12px" role="radiogroup" aria-labelledby="q-prog"><sc-for list="{{ progOpts }}" as="o" hint-placeholder-count="3"><label class="{{ o.cls }}"><span class="top"><input type="radio" name="prog" checked="{{ o.checked }}" data-on-change="{{ o.pick }}">{{ o.label }}</span><span class="small">{{ o.sub }}</span></label></sc-for></div></div>
+<div class="field full"><span class="lbl" id="q-sched">Schedule <span class="req">*</span></span><div class="g3" style="gap:12px" role="radiogroup" aria-labelledby="q-sched"><sc-for list="{{ schedules }}" as="o" hint-placeholder-count="3"><label class="{{ o.cls }}"><span class="top"><input type="radio" name="sched" checked="{{ o.checked }}" disabled="{{ o.off }}" data-on-change="{{ o.pick }}">{{ o.label }}</span><span class="small">{{ o.sub2 }}</span></label></sc-for></div><sc-if value="{{ e.schedule }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.schedule }}</p></sc-if></div>
+</div>
+</sc-if>
+
+<sc-if value="{{ is3 }}" hint-placeholder-val="{{ false }}">
+<div class="fgrid2">
+<p class="fl field full">Parent or guardian</p>
+<div class="field full"><label class="lbl" for="q-parent">Full name <span class="req">*</span></label><input id="q-parent" class="{{ c.parent }}" type="text" autocomplete="name" value="{{ v.parent }}" data-on-change="{{ on.parent }}"><sc-if value="{{ e.parent }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.parent }}</p></sc-if></div>
+<div class="field"><label class="lbl" for="q-p1emp">Employer</label><input id="q-p1emp" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.p1Employer }}" data-on-change="{{ on.p1Employer }}"></div><div class="field"><label class="lbl" for="q-p1job">Occupation</label><input id="q-p1job" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.p1Job }}" data-on-change="{{ on.p1Job }}"></div>
+<div class="field"><label class="lbl" for="q-email">Email <span class="req">*</span></label><input id="q-email" class="{{ c.email }}" type="email" autocomplete="email" value="{{ v.email }}" data-on-change="{{ on.email }}"><sc-if value="{{ e.email }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.email }}</p></sc-if></div>
+<div class="field"><label class="lbl" for="q-phone">Phone <span class="req">*</span></label><input id="q-phone" class="{{ c.phone }}" type="tel" autocomplete="tel" value="{{ v.phone }}" data-on-change="{{ on.phone }}"><sc-if value="{{ e.phone }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.phone }}</p></sc-if></div>
+<div class="field full"><label class="lbl" for="q-address">Home address</label><input id="q-address" class="inp" type="text" autocomplete="street-address" placeholder="Street address, Winnipeg" value="{{ v.address }}" data-on-change="{{ on.address }}"></div>
+<div class="field"><label class="lbl" for="q-postal">Postal code <span class="req">*</span></label><input id="q-postal" class="{{ c.postal }}" type="text" autocomplete="postal-code" value="{{ v.postal }}" data-on-change="{{ on.postal }}"><sc-if value="{{ e.postal }}" hint-placeholder-val="{{ false }}"><p class="err">{{ e.postal }}</p></sc-if></div>
+<div class="field"><span class="lbl" id="q-contact">Best way to reach you</span><div class="opts" role="radiogroup" aria-labelledby="q-contact"><sc-for list="{{ contactOpts }}" as="o" hint-placeholder-count="3"><label class="{{ o.cls }}"><input type="radio" name="contact" checked="{{ o.checked }}" data-on-change="{{ o.pick }}">{{ o.label }}</label></sc-for></div></div>
+<sc-if value="{{ noP2 }}" hint-placeholder-val="{{ true }}"><div class="field full"><button type="button" class="addp" data-on-click="{{ on.addP2 }}">+ Add a second parent or guardian</button></div></sc-if>
+<sc-if value="{{ v.p2On }}" hint-placeholder-val="{{ false }}"><div class="subpanel field full"><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><p class="fl">Second parent or guardian</p><button type="button" class="linkbtn" data-on-click="{{ on.removeP2 }}">Remove</button></div><div class="fgrid2"><div class="field full"><label class="lbl" for="q-p2name">Full name</label><input id="q-p2name" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.p2Name }}" data-on-change="{{ on.p2Name }}"></div><div class="field"><label class="lbl" for="q-p2emp">Employer</label><input id="q-p2emp" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.p2Employer }}" data-on-change="{{ on.p2Employer }}"></div><div class="field"><label class="lbl" for="q-p2job">Occupation</label><input id="q-p2job" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.p2Job }}" data-on-change="{{ on.p2Job }}"></div></div></div></sc-if>
+<div class="field full"><span class="lbl" id="q-sib">Sibling already enrolled?</span><div class="opts" role="radiogroup" aria-labelledby="q-sib"><sc-for list="{{ sibOpts }}" as="o" hint-placeholder-count="2"><label class="{{ o.cls }}"><input type="radio" name="sib" checked="{{ o.checked }}" data-on-change="{{ o.pick }}">{{ o.label }}</label></sc-for></div></div>
+<sc-if value="{{ hasSib }}" hint-placeholder-val="{{ false }}"><div class="field full"><label class="lbl" for="q-sibname">Sibling's name</label><input id="q-sibname" class="inp" type="text" autocomplete="off" placeholder="" value="{{ v.siblingName }}" data-on-change="{{ on.siblingName }}"></div></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ is4 }}" hint-placeholder-val="{{ false }}">
+<div class="fgrid2">
+<div class="field full"><span class="lbl" id="q-tour">When works best for your tour?</span><div class="opts" role="radiogroup" aria-labelledby="q-tour"><sc-for list="{{ tourOpts }}" as="o" hint-placeholder-count="3"><label class="{{ o.cls }}"><input type="radio" name="tour" checked="{{ o.checked }}" data-on-change="{{ o.pick }}">{{ o.label }}</label></sc-for></div></div>
+<div class="field"><label class="lbl" for="q-heard">How did you hear about us?</label><select id="q-heard" class="inp" value="{{ v.heard }}" data-on-change="{{ on.heard }}"><option value="">Choose one</option><option value="Google">Google</option><option value="Friend or family">Friend or family</option><option value="Instagram">Instagram</option><option value="Facebook">Facebook</option><option value="Walked or drove by">Walked or drove by</option><option value="Other">Other</option></select></div>
+<div class="field full"><label class="lbl" for="q-notes">Anything we should know?</label><textarea id="q-notes" class="inp" maxlength="500" value="{{ v.notes }}" data-on-change="{{ on.notes }}"></textarea></div>
+<label class="inline field full"><input type="checkbox" checked="{{ v.consent }}" data-on-change="{{ on.consent }}"><span>I agree that River Heights Montessori may contact me about this inquiry, and I have read the <a href="/privacy/" target="_blank" rel="noopener">privacy policy</a>. <span class="req" style="color:#8A6A1F">*</span></span></label>
+<sc-if value="{{ e.consent }}" hint-placeholder-val="{{ false }}"><p class="err field full">{{ e.consent }}</p></sc-if>
+</div>
+</sc-if>
+
+<sc-if value="{{ sendErr }}" hint-placeholder-val="{{ false }}"><p class="err" role="alert">{{ sendErr }}</p></sc-if>
+<div class="formnav">
+<sc-if value="{{ canBack }}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn-t" data-on-click="{{ back }}">← Back</button></sc-if>
+<sc-if value="{{ is1 }}" hint-placeholder-val="{{ true }}"><span class="small">About three minutes</span></sc-if>
+<sc-if value="{{ notLast }}" hint-placeholder-val="{{ true }}"><button type="button" class="btn btn-f" data-on-click="{{ next }}">Continue</button></sc-if>
+<sc-if value="{{ is4 }}" hint-placeholder-val="{{ false }}"><button type="button" class="btn btn-f" disabled="{{ sending }}" data-on-click="{{ submit }}">{{ submitLabel }}</button></sc-if>
+</div>
+</div>
+</sc-if>
+
+<sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+<div class="success">
+<span style="width:72px;height:72px;border-radius:99px;background:#EEF2EC;display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2F4A3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<p class="eb">Tour request received</p>
+<h3 class="h2" style="font-size:48px">Thank you, <span class="ac">{{ parentFirst }}.</span></h3>
+<p class="lead">{{ doneMsg }}</p>
+<div class="rows" style="width:100%">
+<div><span>Child</span><b>{{ childFirst }}</b></div>
+<div><span>Program</span><b>{{ progShortOr }}</b></div>
+<div><span>Schedule</span><b>{{ schedLabel }}</b></div>
+<div><span>Ideal start</span><b>{{ startLong }}</b></div>
+</div>
+<p class="body">A confirmation is on its way to {{ v.email }}.</p>
+<div style="display:flex;gap:12px;flex-wrap:wrap"><button type="button" class="btn btn-o" data-on-click="{{ reset }}">Start another request</button></div>
+</div>
+</sc-if>
+</div>
+
+<aside class="side">
+<div class="panel">
+<p class="eb">What happens next</p>
+<ul class="checks">
+<li><span class="ck">1</span><span>We review your form and get back to you within one business day.</span></li>
+<li><span class="ck">2</span><span>We call or email to book your tour at a time that suits you.</span></li>
+<li><span class="ck">3</span><span>If your program is full, you join the wait list for your start date.</span></li>
+</ul>
+<p class="small">Prefer to talk? Call <b style="color:#2A2622">(204) 306-8778</b>.</p>
+</div>
+</aside>
+
+</div>
+</div></section>
+
+<section id="fees" class="sec anchor tint"><div class="wrap" style="display:flex;flex-direction:column;gap:48px">
+<div class="split" style="align-items:end;gap:64px"><div class="head rv"><p class="eb">Fees, calendar and wait list</p><h2 class="h2">Good to know <span class="ac">before you visit.</span></h2></div><p class="lead rv2">Fee schedules follow a September to August school year. Every program is all inclusive, with no add-on fees. Full fee details are shared with you when you book your tour.</p></div>
+<div class="pol pol3">
+<div class="poli rv"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span><div style="display:flex;flex-direction:column;gap:6px"><p class="h4">One all-inclusive fee</p><p class="body">Music, yoga, French and daily e-reports are all part of it. No add-ons and no surprise charges.</p></div></div>
+<div class="poli rv2"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><rect x="4" y="5" width="16" height="15" rx="2"></rect><path d="M4 10h16M9 3v4M15 3v4"></path></svg></span><div style="display:flex;flex-direction:column;gap:6px"><p class="h4">Calendar</p><p class="body">Open 12 months a year. Closed on statutory holidays and one professional development day.</p></div></div>
+<div class="poli rv3" id="waitlist"><span class="icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"></rect><path d="M9 4V3h6v1"></path><path d="M9 10h6M9 14h6M9 18h3"></path></svg></span><div style="display:flex;flex-direction:column;gap:6px"><p class="h4">Full right now? You are still in line.</p><p class="body">There is one form for everything. Fill out the <a href="#inquiry" class="link">Book a tour form</a> above, and if a program is full, you are still in line. We will contact you as soon as a space opens.</p></div></div>
+</div>
+</div></section>
+
+<section id="faq" class="sec anchor"><div class="narrow" style="display:flex;flex-direction:column;gap:40px">
+<div class="headc rv"><p class="eb">Frequently asked questions</p><h2 class="h2">Questions parents <span class="ac">often ask.</span></h2></div>
+<div class="acc">
+<details class="acci" open><summary class="accb"><span>What makes River Heights Montessori different?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>River Heights Montessori offers a unique Reggio-inspired Montessori approach, combining the independence and hands-on learning principles of Montessori with the creativity, collaboration, and child-led exploration associated with the Reggio Emilia philosophy.</p><p>Our warm, thoughtfully prepared environment encourages children to develop independence, confidence, creativity, curiosity, and a lifelong love of learning while recognizing that every child develops at their own pace.</p></div></details>
+<details class="acci"><summary class="accb"><span>Are you open year-round, and how do your daily fees work?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>Yes! River Heights Montessori is open 12 months of the year, providing families with consistent and dependable child care throughout the year.</p><p>We keep our fee structure simple with one consistent fee for up to 10 hours of care per day, giving families the flexibility and peace of mind they need without having to choose between different hourly care options.</p></div></details>
+<details class="acci"><summary class="accb"><span>What ages do you accept?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>We welcome children from 6 months to 6 years of age, providing a nurturing and engaging environment designed to support their development throughout these important early years.</p><p>Availability varies by age group, so we encourage families to contact us regarding current and upcoming openings.</p></div></details>
+<details class="acci"><summary class="accb"><span>What are your child-to-educator ratios?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>At River Heights Montessori, children's safety, supervision, and individual attention are a top priority.</p><p>As a licensed child care centre, we follow the child-to-staff ratios established by Manitoba's Early Learning and Child Care regulations based on the age of the children in each program.</p><p>Maintaining these ratios helps ensure children receive appropriate supervision, meaningful interactions, and the individual support they need throughout their day. Our team carefully monitors classroom ratios and staffing to maintain licensing requirements at all times.</p></div></details>
+<details class="acci"><summary class="accb"><span>Do you offer full-time and part-time care?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>Yes. We offer both full-time and part-time enrolment options, subject to availability. Our team can help you determine which option best fits your family's needs.</p></div></details>
+<details class="acci"><summary class="accb"><span>Are you part of Manitoba's $10-a-day child care program?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>No. River Heights Montessori is a private child care centre, and families pay their monthly child care fees directly.</p><p>However, eligible child care expenses may be claimed as a deduction when filing your annual income tax return. Depending on eligibility, families may be able to claim up to $8,000 per year for a child under 7, or up to $11,000 for a child who qualifies for the Disability Tax Credit.</p><p>We provide families with annual child care tax receipts for eligible fees paid. The actual deduction and resulting tax savings will depend on each family's individual circumstances and eligibility.</p></div></details>
+<details class="acci"><summary class="accb"><span>Do you provide meals and snacks?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>Families provide their child's meals and snacks, allowing parents to choose foods based on their child's preferences, dietary needs, and family routines.</p></div></details>
+<details class="acci"><summary class="accb"><span>What does a typical day look like?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>Each day includes a thoughtful balance of Montessori learning, child-led exploration, independent activities, creative experiences, outdoor play, group activities, meals, and rest time.</p><p>Our Reggio-inspired Montessori approach provides children with consistency and structure while giving them opportunities to explore their interests, express their creativity, and learn at their own pace.</p></div></details>
+<details class="acci"><summary class="accb"><span>How will I receive updates about my child?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>We use Brightwheel to help families stay connected with their child's experience at RHM. Parents can receive updates and photos, stay informed about important centre information, and communicate directly with our team.</p></div></details>
+<details class="acci"><summary class="accb"><span>Can I tour the centre before enrolling?</span><span class="pm" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"></path></svg></span></summary><div class="acca"><p>Absolutely! We encourage families to visit our centre, explore our classrooms, meet our educators, and learn more about our Reggio-inspired Montessori approach before making an enrolment decision.</p><p>Simply submit a Book a Tour request through our website, and our team will be happy to connect with you.</p><p><a href="#inquiry" class="link">Book a tour</a></p></div></details>
+</div>
+</div></section>
+
+
+

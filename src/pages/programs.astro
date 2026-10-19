@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import body from '../content/pages/programs.html?raw';
+---
+<Layout title="Our Programs" description="Nido for infants and toddlers and Preschool for ages 2 to 6, blending Montessori and Reggio Emilia. Music, yoga and French included, open all year." current="programs" footerStyle="margin-top:0;border-top:1px solid #E8DFCB">
+  <Fragment set:html={body} />
+</Layout>

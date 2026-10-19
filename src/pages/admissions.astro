@@ -1,0 +1,9 @@
+---
+import Layout from '../layouts/Layout.astro';
+import body from '../content/pages/admissions.html?raw';
+---
+<Layout title="Admissions" description="Book a tour of River Heights Montessori. One all-inclusive fee, a wait list for full programs, and answers to the questions parents ask most." current="admissions" footerStyle="margin-top:0;border-top:1px solid #E8DFCB">
+  <Fragment set:html={body} />
+  <script is:inline src="/js/dc-runtime.js"></script>
+  <script is:inline src="/js/tour-form.js"></script>
+</Layout>

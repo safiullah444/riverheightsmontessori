@@ -1,0 +1,50 @@
+---
+interface Props { current?: string }
+const { current = '' } = Astro.props;
+const links = [
+  { href: '/programs/', label: 'Our Programs', key: 'programs' },
+  { href: '/about/', label: 'About Us', key: 'about' },
+  { href: '/admissions/', label: 'Admissions', key: 'admissions' },
+  { href: '/contact/', label: 'Contact Us', key: 'contact' },
+];
+const tourHref = current === 'admissions' ? '#inquiry' : '/admissions/#inquiry';
+---
+<div class="navwrap">
+  <nav class="pill" aria-label="Main">
+    <a href="/" class="brand" aria-label="River Heights Montessori home">
+      <img src="/images/logo-horizontal.png" alt="River Heights Montessori" class="navlogo" width="648" height="180" />
+    </a>
+    <div class="links">
+      {links.map((l) => (
+        <a href={l.href} class={current === l.key ? 'on' : undefined} aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+      ))}
+    </div>
+    <a href={tourHref} class="btn btn-f pcta">Book a tour</a>
+    <button class="menu" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mnav">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A2622" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 8h16M4 16h16"></path></svg>
+    </button>
+  </nav>
+  <div class="mnav" id="mnav" hidden>
+    <a href="/">Home</a>
+    {links.map((l) => (
+      <a href={l.href} aria-current={current === l.key ? 'page' : undefined}>{l.label}</a>
+    ))}
+    <a href="/meet-the-team/">Meet Our Team</a>
+    <a href={tourHref} class="btn btn-f">Book a tour</a>
+  </div>
+</div>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('.pill .menu');
+  const panel = document.getElementById('mnav');
+  if (btn && panel) {
+    const set = (open: boolean) => {
+      panel.hidden = !open;
+      btn.setAttribute('aria-expanded', String(open));
+      btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    };
+    btn.addEventListener('click', () => set(panel.hidden));
+    panel.addEventListener('click', (e) => { if ((e.target as HTMLElement).closest('a')) set(false); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') set(false); });
+  }
+</script>

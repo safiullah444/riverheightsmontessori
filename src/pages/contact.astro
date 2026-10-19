@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import body from '../content/pages/contact.html?raw';
+---
+<Layout title="Contact Us" description="Find River Heights Montessori at 333 Wilton Street, Winnipeg. Call (204) 306-8778 or book a tour. Open Monday to Friday, 7:30 am to 5:30 pm." current="contact" footerStyle="margin-top:0;border-top:1px solid #E8DFCB">
+  <Fragment set:html={body} />
+</Layout>

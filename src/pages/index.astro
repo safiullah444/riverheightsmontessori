@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import body from '../content/pages/index.html?raw';
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ChildCare',
+  name: 'River Heights Montessori',
+  description: 'Reggio-inspired Montessori early learning for children 3 months to 6 years.',
+  telephone: '+1-204-306-8778',
+  email: 'info@riverheightschildcare.com',
+  address: { '@type': 'PostalAddress', streetAddress: '333 Wilton Street', addressLocality: 'Winnipeg', addressRegion: 'MB', postalCode: 'R3M 3B7', addressCountry: 'CA' },
+  openingHoursSpecification: [{ '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday'], opens: '07:30', closes: '17:30' }],
+};
+---
+<Layout title="Home" description="Winnipeg's only Reggio-inspired Montessori school. A licensed early learning centre on Wilton Street for children 3 months to 6 years, open 12 months a year.">
+  <script type="application/ld+json" slot="head" set:html={JSON.stringify(schema)} />
+  <Fragment set:html={body} />
+</Layout>

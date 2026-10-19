@@ -1,0 +1,7 @@
+---
+import Layout from '../layouts/Layout.astro';
+import body from '../content/pages/about.html?raw';
+---
+<Layout title="About Us" description="Meet River Heights Montessori: our mission, our centre on Wilton Street, a note from our Director and our team of early childhood educators." current="about">
+  <Fragment set:html={body} />
+</Layout>
