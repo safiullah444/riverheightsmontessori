@@ -35,7 +35,7 @@ const ogImage = Astro.site ? new URL('/images/photo-classroom-empty.jpg', Astro.
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Jost:wght@400;500;600&display=swap" rel="stylesheet" />
     <slot name="head" />
   </head>
-  <body>
+  <body class="pageA">
     <a class="skip" href="#main">Skip to content</a>
     <Nav current={current} />
     <main id="main">
