@@ -38,7 +38,7 @@ Set these in Netlify (Site configuration > Environment variables, scope must inc
 | `RESEND_API_KEY` | `re_...` | From the Resend dashboard |
 | `TOUR_TO_EMAIL` | `safi@example.com,info@example.com` | Comma-separated recipients for leads |
 | `TOUR_FROM_EMAIL` | `River Heights Montessori <hello@your-domain.ca>` | Must be on a domain verified in Resend |
-| `TOUR_REPLY_TO` | `info@riverheightschildcare.com` | Optional. Reply-to on the parent confirmation |
+| `TOUR_REPLY_TO` | `info@riverheightsmontessori.ca` | Optional. Reply-to on the parent confirmation |
 | `SITE_URL` | `https://www.your-domain.ca` | Optional. Enables canonical URLs and absolute social-preview images |
 
 ## Develop
