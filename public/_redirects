@@ -2,6 +2,16 @@
 # to the new site, riverheightsmontessori.ca. These only take effect once
 # riverheightschildcare.com is added to this Netlify site as a domain alias.
 
+# Old homepage (every http/https and www combination) -> new homepage in one hop.
+# Google's Change of Address check requires the first redirect to land on the new site.
+http://riverheightschildcare.com/                      https://riverheightsmontessori.ca/                301!
+http://www.riverheightschildcare.com/                  https://riverheightsmontessori.ca/                301!
+https://www.riverheightschildcare.com/                 https://riverheightsmontessori.ca/                301!
+
+# Non-secure (http) old pages -> secure old domain, where the page rules below apply
+http://riverheightschildcare.com/*                     https://riverheightschildcare.com/:splat          301!
+http://www.riverheightschildcare.com/*                 https://riverheightschildcare.com/:splat          301!
+
 # Common old WordPress page addresses -> matching new pages
 https://riverheightschildcare.com/about-us/*           https://riverheightsmontessori.ca/about/          301!
 https://riverheightschildcare.com/about/*              https://riverheightsmontessori.ca/about/          301!
