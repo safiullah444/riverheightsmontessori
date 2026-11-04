@@ -1,0 +1,33 @@
+# Permanent (301) redirects from the old site, riverheightschildcare.com,
+# to the new site, riverheightsmontessori.ca. These only take effect once
+# riverheightschildcare.com is added to this Netlify site as a domain alias.
+
+# Common old WordPress page addresses -> matching new pages
+https://riverheightschildcare.com/about-us/*           https://riverheightsmontessori.ca/about/          301!
+https://riverheightschildcare.com/about/*              https://riverheightsmontessori.ca/about/          301!
+https://riverheightschildcare.com/our-story/*          https://riverheightsmontessori.ca/about/          301!
+https://riverheightschildcare.com/philosophy/*         https://riverheightsmontessori.ca/about/          301!
+https://riverheightschildcare.com/montessori-education/*        https://riverheightsmontessori.ca/programs/  301!
+https://riverheightschildcare.com/the-reggio-emilia-approach/*  https://riverheightsmontessori.ca/programs/  301!
+https://riverheightschildcare.com/steam-education/*             https://riverheightsmontessori.ca/programs/  301!
+https://riverheightschildcare.com/programs/*           https://riverheightsmontessori.ca/programs/       301!
+https://riverheightschildcare.com/our-programs/*       https://riverheightsmontessori.ca/programs/       301!
+https://riverheightschildcare.com/services/*           https://riverheightsmontessori.ca/programs/       301!
+https://riverheightschildcare.com/admissions/*         https://riverheightsmontessori.ca/admissions/     301!
+https://riverheightschildcare.com/enrollment/*         https://riverheightsmontessori.ca/admissions/     301!
+https://riverheightschildcare.com/enrolment/*          https://riverheightsmontessori.ca/admissions/     301!
+https://riverheightschildcare.com/registration/*       https://riverheightsmontessori.ca/admissions/     301!
+https://riverheightschildcare.com/fees/*               https://riverheightsmontessori.ca/admissions/     301!
+https://riverheightschildcare.com/staff/*              https://riverheightsmontessori.ca/meet-the-team/  301!
+https://riverheightschildcare.com/our-team/*           https://riverheightsmontessori.ca/meet-the-team/  301!
+https://riverheightschildcare.com/team/*               https://riverheightsmontessori.ca/meet-the-team/  301!
+https://riverheightschildcare.com/meet-the-team/*      https://riverheightsmontessori.ca/meet-the-team/  301!
+https://riverheightschildcare.com/contact-us/*         https://riverheightsmontessori.ca/contact/        301!
+https://riverheightschildcare.com/contact/*            https://riverheightsmontessori.ca/contact/        301!
+https://riverheightschildcare.com/privacy-policy/*     https://riverheightsmontessori.ca/privacy/        301!
+
+# www version of the old domain -> same rules via the bare domain
+https://www.riverheightschildcare.com/*                https://riverheightschildcare.com/:splat          301!
+
+# Everything else on the old domain (blog posts, old pages, the homepage) -> new homepage
+https://riverheightschildcare.com/*                    https://riverheightsmontessori.ca/                301!
