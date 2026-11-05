@@ -2,6 +2,13 @@
 # to the new site, riverheightsmontessori.ca. These only take effect once
 # riverheightschildcare.com is added to this Netlify site as a domain alias.
 
+# Let search engines read robots.txt directly on the old domain (no redirect),
+# so Google's Change of Address checker can crawl the old URLs.
+https://riverheightschildcare.com/robots.txt           /robots.txt                                       200!
+https://www.riverheightschildcare.com/robots.txt       /robots.txt                                       200!
+http://riverheightschildcare.com/robots.txt            /robots.txt                                       200!
+http://www.riverheightschildcare.com/robots.txt        /robots.txt                                       200!
+
 # Old homepage (every http/https and www combination) -> new homepage in one hop.
 # Google's Change of Address check requires the first redirect to land on the new site.
 http://riverheightschildcare.com/                      https://riverheightsmontessori.ca/                301!
